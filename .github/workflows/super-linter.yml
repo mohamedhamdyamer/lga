@@ -11,6 +11,16 @@ jobs:
     permissions:
       contents: read
       packages: read
+      actions: none
+      checks: none
+      deployments: none
+      id-token: none
+      issues: none
+      discussions: none
+      pages: none
+      pull-requests: none
+      repository-projects: none
+      security-events: none
       statuses: write
 
     steps:
