@@ -8,20 +8,20 @@ jobs:
     name: Lint code base
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: read
-      packages: read
-      actions: none
-      checks: none
-      deployments: none
-      id-token: none
-      issues: none
-      discussions: none
-      pages: none
-      pull-requests: none
-      repository-projects: none
-      security-events: none
-      statuses: write
+    permissions: read-all
+#      contents: read
+#      packages: read
+#      actions: none
+#      checks: none
+#      deployments: none
+#      id-token: none
+#      issues: none
+#      discussions: none
+#      pages: none
+#      pull-requests: none
+#      repository-projects: none
+#      security-events: none
+#      statuses: write
 
     steps:
       - name: Checkout code
