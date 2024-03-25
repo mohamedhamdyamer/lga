@@ -31,4 +31,4 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v4
       - name: scan
-        run: checkov --config-file $GITHUB_WORKSAPCE/CodeValidation/super-linter.yml
+        run: checkov --config-file $GITHUB_WORKSAPCE/.github/workflows/super-linter.yml
