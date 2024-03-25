@@ -32,5 +32,5 @@ jobs:
         uses: actions/checkout@v4
       - name: scan
         run: |
-          echo $GITHUB_WORKSAPCE
-          checkov --config-file $GITHUB_WORKSAPCE/super-linter.yml
+          echo $GITHUB_WORKSPACE
+          checkov --config-file $GITHUB_WORKSPACE/super-linter.yml
