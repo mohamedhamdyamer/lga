@@ -27,7 +27,7 @@ jobs:
       - name: install
         run: |
           pip install -q -U urllib3 requests
-          pip install -q cechov
+          pip install -q checkov
       - name: checkout code
         uses: actions/checkout@v4
       - name: scan
