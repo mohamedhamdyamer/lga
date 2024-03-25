@@ -33,4 +33,4 @@ jobs:
       - name: scan
         run: |
           echo $GITHUB_WORKSAPCE
-          checkov --config-file $GITHUB_WORKSAPCE/.github/workflows/super-linter.yml
+          checkov --config-file $GITHUB_WORKSAPCE/super-linter.yml
