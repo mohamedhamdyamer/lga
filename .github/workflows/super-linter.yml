@@ -28,6 +28,10 @@ jobs:
           "echo" The current directory is: "$PWD"
           "cd" "$GITHUB_WORKSPACE"
           "cd" ../../..
+          "echo" The current directory is: "$PWD"
           "cd" "$GITHUB_WORKSPACE"
           "echo" The current directory is: "$PWD"
+          "echo" List of files:
           "ls" -ltr
+          "echo" Contents if index.html:
+          "cat" index.html
