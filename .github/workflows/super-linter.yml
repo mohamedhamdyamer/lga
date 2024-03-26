@@ -25,7 +25,7 @@ jobs:
         run: |
           "echo" GITHUB_WORKSPACE is: "$GITHUB_WORKSPACE"
           cd /
-          "echo" The current directory is: "pwd"
+          "echo" The current directory is: "$PWD"
           "cd" "$GITHUB_WORKSPACE"
-          "echo" The current directory is: "pwd"
+          "echo" The current directory is: "$PWD"
           ls
