@@ -33,5 +33,5 @@ jobs:
           "echo" The current directory is: "$PWD"
           "echo" List of files:
           "ls" -ltr
-          "echo" Contents if index.html:
+          "echo" Contents of index.html:
           "cat" index.html
