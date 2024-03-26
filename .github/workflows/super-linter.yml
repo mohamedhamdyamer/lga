@@ -1,17 +1,14 @@
 ---
 name: Super-Linter
-
 on: push
-
 permissions: read-all
 
 jobs:
   super-lint:
     name: Lint code base
     runs-on: ubuntu-latest
-
-#    permissions:
-#      statuses: write
+    permissions:
+      statuses: write
 
     steps:
       - name: Checkout code
