@@ -23,4 +23,4 @@ jobs:
 
       - name: echo some details
         run: |
-          ehco $GITHUB_WORKSPACE
+          echo $GITHUB_WORKSPACE
