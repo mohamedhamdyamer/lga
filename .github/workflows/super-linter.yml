@@ -24,5 +24,7 @@ jobs:
       - name: echo some details
         run: |
             "echo" "$GITHUB_WORKSPACE"
+            pwd
             "cd" "$GITHUB_WORKSPACE"
+            pwd
             "ls -ltr"
