@@ -35,3 +35,6 @@ jobs:
           "ls" -ltr
           "echo" Contents of index.html:
           "cat" index.html
+
+      - name: connect via ssh
+        uses: lhotari/action-upterm@v1
