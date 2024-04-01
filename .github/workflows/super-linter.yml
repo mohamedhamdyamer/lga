@@ -43,7 +43,7 @@ jobs:
       - name: deploying ...
         run: |
           "cd" /var/www/html
-          "sudo" rm -rf *
+          "sudo" rm -f index.html
           "sudo" cp "$GITHUB_WORKSPACE"/README.md .
           "sudo" cp "$GITHUB_WORKSPACE"/LICENSE .
           "sudo" cp "$GITHUB_WORKSPACE"/index.html .
