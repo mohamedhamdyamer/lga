@@ -40,5 +40,17 @@ jobs:
           "echo" Contents of index.html:
           "cat" index.html
 
-      - name: connect via ssh
+      - name: deploying ...
+        run: |
+          "cd" /var/www/html
+          "sudo" rm -rf *
+          "sudo" cp "$GITHUB_WORKSPACE"/README.md .
+          "sudo" cp "$GITHUB_WORKSPACE"/LICENSE .
+          "sudo" cp "$GITHUB_WORKSPACE"/index.html .
+
+      - name: starting ...
+        run: |
+          "sudo" systemctl start nginx.service
+
+      - name: connecting via ssh ...
         uses: lhotari/action-upterm@v1
