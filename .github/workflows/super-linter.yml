@@ -33,7 +33,6 @@ jobs:
 
           "cd" "$GITHUB_WORKSPACE"
           "echo" The current directory is: "$PWD"
-
           "echo" List of files:
           "ls" -ltr
 
