@@ -21,37 +21,37 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: echo some details
-        run: |
-          "echo" GITHUB_WORKSPACE is: "$GITHUB_WORKSPACE"
-          "cd" /
-          "echo" The current directory is: "$PWD"
+#      - name: echo some details
+#        run: |
+#          "echo" GITHUB_WORKSPACE is: "$GITHUB_WORKSPACE"
+#          "cd" /
+#          "echo" The current directory is: "$PWD"
 
-          "cd" "$GITHUB_WORKSPACE"
-          "cd" ../../..
-          "echo" The current directory is: "$PWD"
+#          "cd" "$GITHUB_WORKSPACE"
+#          "cd" ../../..
+#          "echo" The current directory is: "$PWD"
 
-          "cd" "$GITHUB_WORKSPACE"
-          "echo" The current directory is: "$PWD"
+#          "cd" "$GITHUB_WORKSPACE"
+#          "echo" The current directory is: "$PWD"
 
-          "echo" List of files:
-          "ls" -ltr
+#          "echo" List of files:
+#          "ls" -ltr
 
-          "echo" Contents of index.html:
-          "cat" index.html
+#          "echo" Contents of index.html:
+#          "cat" index.html
 
-      - name: deploying ...
-        run: |
-          "cd" /var/www/html
-          "sudo" rm -f index.html
-          "sudo" rm -f index.nginx-debian.html
-          "sudo" cp "$GITHUB_WORKSPACE"/README.md .
-          "sudo" cp "$GITHUB_WORKSPACE"/LICENSE .
-          "sudo" cp "$GITHUB_WORKSPACE"/index.html .
+#      - name: deploying ...
+#        run: |
+#          "cd" /var/www/html
+#          "sudo" rm -f index.html
+#          "sudo" rm -f index.nginx-debian.html
+#          "sudo" cp "$GITHUB_WORKSPACE"/README.md .
+#          "sudo" cp "$GITHUB_WORKSPACE"/LICENSE .
+#          "sudo" cp "$GITHUB_WORKSPACE"/index.html .
 
-      - name: starting ...
-        run: |
-          "sudo" systemctl start nginx.service
+#      - name: starting ...
+#        run: |
+#          "sudo" systemctl start nginx.service
 
-      - name: connecting via ssh ...
-        uses: lhotari/action-upterm@v1
+#      - name: connecting via ssh ...
+#        uses: lhotari/action-upterm@v1
