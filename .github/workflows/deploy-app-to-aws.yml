@@ -41,13 +41,13 @@ name: Deploy to Amazon ECS
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
 
 env:
-  AWS_REGION:          us-east-1 # set this to your preferred AWS region
-  ECR_REPOSITORY:      lga # set this to your Amazon ECR repository name
-  ECS_SERVICE:         lga-service # set this to your Amazon ECS service name
-  ECS_CLUSTER:         lga-amer-ecs-cluster # set this to your ECS cluster name
+  AWS_REGION: us-east-1 # set this to your preferred AWS region
+  ECR_REPOSITORY: lga # set this to your Amazon ECR repository name
+  ECS_SERVICE: lga-service # set this to your Amazon ECS service name
+  ECS_CLUSTER: lga-amer-ecs-cluster # set this to your ECS cluster name
   ECS_TASK_DEFINITION: .aws/task-definition-nginx.json
     # set this to the path to your Amazon ECS task definition
     # file, e.g. .aws/task-definition.json
@@ -64,8 +64,8 @@ jobs:
     environment: production
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
