@@ -1,5 +1,4 @@
 FROM nginx:stable
 
-RUN useradd -m amer
-USER amer
+USER root
 HEALTHCHECK CMD curl --fail http://localhost || exit 1
