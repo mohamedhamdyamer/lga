@@ -68,7 +68,7 @@ jobs:
           cluster: ${{ env.ECS_CLUSTER }}
           wait-for-service-stability: true
 
-  test:
+  testmanually:
     name: test (manually ...)
     runs-on: ubuntu-latest
     environment: manual-step
@@ -95,7 +95,7 @@ jobs:
   onrejection:
     name: on rejection
     runs-on: ubuntu-latest
-    if: ${{ jobs.test.outputs.approved != 'true' }}
+    if: ${{ needs.testmanually.outputs.approved != 'true' }}
     steps:
       - name: echo the rejection
         run: |
