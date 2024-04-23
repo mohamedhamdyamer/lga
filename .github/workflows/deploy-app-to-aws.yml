@@ -49,8 +49,9 @@ env:
   ECS_TASK_DEFINITION: .aws/task-definition-nginx.json
     # set this to the path to your Amazon ECS task definition
     # file, e.g. .aws/task-definition.json
-  CONTAINER_NAME: nginx # set this to the name of the container in the
-                        # containerDefinitions section of your task definition
+  CONTAINER_NAME: nginx-amer
+    # set this to the name of the container in the
+    # containerDefinitions section of your task definition
 
 permissions:
   contents: read
