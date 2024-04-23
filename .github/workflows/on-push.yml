@@ -45,7 +45,7 @@ jobs:
         id: build-image
         env:
           ECR_REG: ${{ steps.login-ecr.outputs.registry }}
-          IMAGE_TAG: amer-${{ github.ref_name }}-image
+          IMAGE_TAG: nginx-amer-${{ github.ref_name }}-${{ github.sha }}
         run: |
           # Build a docker container, push it to ECR, and deploy to ECS
           docker build -t "$ECR_REG/$ECR_REPO:$IMAGE_TAG" .
