@@ -68,11 +68,36 @@ jobs:
           cluster: ${{ env.ECS_CLUSTER }}
           wait-for-service-stability: true
 
-  test:
-    name: test the newly deployed code (manually ...)
+  test-manually:
+    name: test (manually ...)
     runs-on: ubuntu-latest
     environment: manual-step
     steps:
-      - name: test manually and approve or ask for re-coding
+      - name: echo the approval
         run: |
-          echo "Manual Approval is required!"
+          echo "Newly deployed code has been approved! ..."
+
+      - name: set outputs
+        id: set-outputs
+        run: |
+          echo "approved=true" >> $GITHUB_OUTPUT
+
+      - name: create a pull request
+        run: |
+          echo "Pull Request created."
+
+      - name: remove the container
+        run: |
+          echo "Container removed."
+
+  on-rejection:
+    name: on rejection
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo the rejection
+        run: |
+          echo "Newly deployed code has been rejected."
+
+      - name: remove the container
+        run: |
+          echo "Container removed."
