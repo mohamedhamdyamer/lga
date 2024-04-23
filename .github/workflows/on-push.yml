@@ -93,6 +93,7 @@ jobs:
   on-rejection:
     name: on rejection
     runs-on: ubuntu-latest
+    if: ${{ needs.test-manually.outputs.approved != 'true' }}
     steps:
       - name: echo the rejection
         run: |
