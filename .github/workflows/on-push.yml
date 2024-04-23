@@ -73,7 +73,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: manual-step
     outputs:
-      approved: ${{ steps.set-outputs.approved }}
+      approved: ${{ steps.set-outputs.outputs.approved }}
     steps:
       - name: echo the approval
         run: |
