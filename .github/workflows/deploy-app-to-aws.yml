@@ -15,8 +15,6 @@
 #      in the workflow below with your repository's region.
 #
 # 2. Create an ECS task definition, an ECS cluster, and an ECS service.
-#    For example, follow the Getting Started guide on the ECS console:
-#      https://us-east-2.console.aws.amazon.com/ecs/home?region=us-east-2#/firstRun
 #    Replace the value of the `ECS_SERVICE` environment variable
 #      in the workflow below with the name you set for the Amazon ECS service.
 #    Replace the value of the `ECS_CLUSTER` environment variable
@@ -45,7 +43,7 @@ on:
 
 env:
   AWS_REGION: us-east-1 # set this to your preferred AWS region
-  ECR_REPOSITORY: lga # set this to your Amazon ECR repository name
+  ECR_REPO: lga # set this to your Amazon ECR repository name
   ECS_SERVICE: lga-service # set this to your Amazon ECS service name
   ECS_CLUSTER: lga-amer-ecs-cluster # set this to your ECS cluster name
   ECS_TASK_DEFINITION: .aws/task-definition-nginx.json
@@ -81,13 +79,13 @@ jobs:
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
         env:
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REG: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: ${{ github.sha }}
         run: |
           # Build a docker container, push it to ECR, and deploy to ECS
-          docker build -t "$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" .
-          docker push "$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
-          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> "$GITHUB_OUTPUT"
+          docker build -t "$ECR_REG/$ECR_REPO:$IMAGE_TAG" .
+          docker push "$ECR_REG/$ECR_REPO:$IMAGE_TAG"
+          echo "image=$ECR_REG/$ECR_REPO:$IMAGE_TAG" >> "$GITHUB_OUTPUT"
 
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def

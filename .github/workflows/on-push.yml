@@ -5,7 +5,7 @@ permissions: { }
 
 env:
   AWS_REGION: us-east-1
-  ECR_REPOSITORY: lga
+  ECR_REPO: lga
   ECS_SERVICE: lga-service
   ECS_CLUSTER: lga-amer-ecs-cluster
   ECS_TASK_DEFINITION: .aws/task-definition-nginx.json
@@ -44,13 +44,13 @@ jobs:
       - name: Build, tag, and push an image to Amazon ECR
         id: build-image
         env:
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REG: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: amer-${{ github.ref_name }}-image
         run: |
           # Build a docker container, push it to ECR, and deploy to ECS
-          docker build -t "$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" .
-          docker push "$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
-          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> "$GITHUB_OUTPUT"
+          docker build -t "$ECR_REG/$ECR_REPO:$IMAGE_TAG" .
+          docker push "$ECR_REG/$ECR_REPO:$IMAGE_TAG"
+          echo "image=$ECR_REG/$ECR_REPO:$IMAGE_TAG" >> "$GITHUB_OUTPUT"
 
       - name: Fill in the new image ID into the Amazon ECS task definition
         id: task-def
