@@ -67,3 +67,12 @@ jobs:
           service: ${{ env.ECS_SERVICE }}
           cluster: ${{ env.ECS_CLUSTER }}
           wait-for-service-stability: true
+
+  test:
+    name: test the newly deployed code (manually ...)
+    runs-on: ubuntu-latest
+    environment: manual-step
+    steps:
+      - name: test manually and approve or ask for re-coding
+        run: |
+          echo "Manual Approval is required!"
