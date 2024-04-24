@@ -33,9 +33,13 @@ jobs:
       approved: true
 
     steps:
-      - name: echo approved
+      - name: echo test
         run: |
-          echo "$approved"
+          echo "test >> $GITHUB_OUTPUT"
+
+      - name: echo test in GITHUB_OUTPUT
+        run: |
+          echo "test >> $GITHUB_OUTPUT"
 
       - name: echo github output
         run: |
