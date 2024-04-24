@@ -33,14 +33,6 @@ jobs:
       approved: true
 
     steps:
-      - name: echo testing
-        run: |
-          echo "testing"
-
-      - name: echo testing in GITHUB_OUTPUT
-        run: |
-          "echo testing >> $GITHUB_OUTPUT"
-
       - name: echo github output
         run: |
           echo "$GITHUB_OUTPUT"
@@ -48,6 +40,13 @@ jobs:
       - name: cat github output
         run: |
           cat "$GITHUB_OUTPUT"
+          - name: echo testing
+          run: |
+            echo "testing"
+  
+      - name: echo testing in GITHUB_OUTPUT
+        run: |
+          "echo testing >> $GITHUB_OUTPUT"
 
       - name: echo the approval
         run: |
