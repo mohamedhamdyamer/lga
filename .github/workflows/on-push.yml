@@ -33,21 +33,14 @@ jobs:
       approved: true
 
     steps:
-      - name: echo github output
+      - name: debug 01
         run: |
-          echo "$GITHUB_OUTPUT"
+          echo "approved=true"
 
-      - name: cat github output
+      - name: set the approval in the outputs file
+        id: set-approval
         run: |
-          cat "$GITHUB_OUTPUT"
-
-      - name: echo testing
-        run: |
-          echo "testing"
-  
-      - name: echo testing in GITHUB_OUTPUT
-        run: |
-          "echo testing >> $GITHUB_OUTPUT"
+          echo "approved=true" >> "$GITHUB_OUTPUT"
 
       - name: echo the approval
         run: |
