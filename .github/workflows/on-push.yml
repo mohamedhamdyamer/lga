@@ -50,6 +50,10 @@ jobs:
         run: |
           echo "Container removed."
 
+      - name: print the output
+        run: |
+          echo "$GITHUB_OUTPUT"
+
   on-rejection:
     name: on rejection
     runs-on: ubuntu-latest
@@ -63,6 +67,10 @@ jobs:
       - name: remove the container
         run: |
           echo "Container removed."
+
+      - name: print the output
+        run: |
+            echo "$GITHUB_OUTPUT"
 
 #      - name: Run Super-Linter
 #        uses: super-linter/super-linter@v6.3.1
