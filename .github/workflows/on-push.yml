@@ -40,9 +40,10 @@ jobs:
       - name: cat github output
         run: |
           cat "$GITHUB_OUTPUT"
-          - name: echo testing
-          run: |
-            echo "testing"
+
+      - name: echo testing
+        run: |
+          echo "testing"
   
       - name: echo testing in GITHUB_OUTPUT
         run: |
