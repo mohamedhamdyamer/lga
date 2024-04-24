@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: manual-step
     outputs:
-      approved: true
+      approval-granted: "not yet"
 
     steps:
       - name: debug 01
