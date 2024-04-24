@@ -30,13 +30,12 @@ jobs:
     runs-on: ubuntu-latest
     environment: manual-step
     outputs:
-      approved: ${{ steps.set-outputs.outputs.approved }}
+      approved: true
 
     steps:
       - name: set outputs
-        id: set-outputs
         run: |
-          "echo approved=true >> $GITHUB_OUTPUT"
+          echo $approved
 
       - name: echo the approval
         run: |
@@ -50,15 +49,9 @@ jobs:
         run: |
           echo "Container removed."
 
-      - name: print the output
-        run: |
-          "echo $GITHUB_OUTPUT"
-          "cat $GITHUB_OUTPUT"
-
   on-rejection:
     name: on rejection
     runs-on: ubuntu-latest
-    if: ${{ needs.test-manually.outputs.approved != 'true' }}
 
     steps:
       - name: echo the rejection
@@ -68,11 +61,6 @@ jobs:
       - name: remove the container
         run: |
           echo "Container removed."
-
-      - name: print the output
-        run: |
-          "echo $GITHUB_OUTPUT"
-          "cat $GITHUB_OUTPUT"
 
 #      - name: Run Super-Linter
 #        uses: super-linter/super-linter@v6.3.1
