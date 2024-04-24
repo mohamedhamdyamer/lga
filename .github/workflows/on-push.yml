@@ -52,7 +52,7 @@ jobs:
 
       - name: print the output
         run: |
-          cat "$GITHUB_OUTPUT"
+          cat $GITHUB_OUTPUT
 
   on-rejection:
     name: on rejection
@@ -70,7 +70,7 @@ jobs:
 
       - name: print the output
         run: |
-            cat "$GITHUB_OUTPUT"
+            cat $GITHUB_OUTPUT
 
 #      - name: Run Super-Linter
 #        uses: super-linter/super-linter@v6.3.1
