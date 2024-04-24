@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: manual-step
     outputs:
-      approval-granted: "not yet"
+      code-approved: "not yet"
 
     steps:
       - name: debug 01
@@ -63,11 +63,12 @@ jobs:
   on-rejection:
     name: on rejection
     runs-on: ubuntu-latest
+    needs: test-manually
 
     steps:
       - name: print the approval value from the manual step
         run: |
-          echo ${{ needs.test-manually.outputs.approval-granted }}
+          echo ${{ needs.test-manually.outputs.code-approved }}
 
       - name: echo the rejection
         run: |
