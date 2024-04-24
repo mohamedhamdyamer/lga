@@ -41,6 +41,8 @@ jobs:
         id: set-approval
         run: |
           echo "approved=true" >> "$GITHUB_OUTPUT"
+          echo "$GITHUB_OUTPUT"
+          cat "$GITHUB_OUTPUT"
 
       - name: echo the approval
         run: |
