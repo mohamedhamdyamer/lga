@@ -65,6 +65,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: print the approval value from the manual step
+        run: |
+          echo ${{ needs.test-manually.outputs.approval-granted }}
+
       - name: echo the rejection
         run: |
           echo "Newly deployed code has been rejected. :-("
