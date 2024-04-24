@@ -35,11 +35,11 @@ jobs:
     steps:
       - name: echo test
         run: |
-          echo "test >> $GITHUB_OUTPUT"
+          echo "test"
 
       - name: echo test in GITHUB_OUTPUT
         run: |
-          echo "test >> $GITHUB_OUTPUT"
+          echo "test" >> "$GITHUB_OUTPUT"
 
       - name: echo github output
         run: |
