@@ -36,7 +36,7 @@ jobs:
       - name: set outputs
         id: set-outputs
         run: |
-          "echo approved=true >> $GITHUB_OUTPUT"
+          echo "approved=true" >> $GITHUB_OUTPUT
 
       - name: echo the approval
         run: |
