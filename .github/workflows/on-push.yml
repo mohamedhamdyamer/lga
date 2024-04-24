@@ -37,6 +37,14 @@ jobs:
         run: |
           echo "$approved" >> $GITHUB_OUTPUT
 
+      - name: echo github output
+        run: |
+          echo "$GITHUB_OUTPUT"
+
+      - name: cat github output
+        run: |
+          cat "$GITHUB_OUTPUT"
+
       - name: echo the approval
         run: |
           echo "Newly deployed code has been approved! ..."
