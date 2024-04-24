@@ -35,7 +35,7 @@ jobs:
     steps:
       - name: set outputs
         run: |
-          echo $approved
+          echo "$approved"
 
       - name: echo the approval
         run: |
