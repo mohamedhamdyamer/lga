@@ -44,6 +44,10 @@ jobs:
           echo "$GITHUB_OUTPUT"
           cat "$GITHUB_OUTPUT"
 
+      - name: print the out of the previous step
+        run: |
+          echo "Vaule of approved is: "${{ steps.set-approval.outputs.approved }}
+
       - name: echo the approval
         run: |
           echo "Newly deployed code has been approved! ..."
