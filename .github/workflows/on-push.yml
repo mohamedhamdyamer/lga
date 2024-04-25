@@ -34,7 +34,7 @@ jobs:
       code-approved: ${{ steps.set-approval.outputs.approved }}
 
     steps:
-      - name: set the approval in the outputs file
+      - name: set the approval in the outputs
         id: set-approval
         run: |
           echo "approved=true" >> "$GITHUB_OUTPUT"
@@ -55,7 +55,7 @@ jobs:
     name: On rejection
     needs: test-manually
     runs-on: ubuntu-latest
-    if: needs.test-manually.outputs.code-approved != 'true'
+    if: ${{ always() && needs.test-manually.outputs.code-approved != 'true'}}
 
     steps:
       - name: print the approval value from the manual step
