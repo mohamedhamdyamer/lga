@@ -68,6 +68,10 @@ jobs:
           cluster: ${{ env.ECS_CLUSTER }}
           wait-for-service-stability: true
 
+      - name: run the container
+        run: |
+          aws ecs update-service --cluster lga-amer-ecs-cluster --service lga-service --desired-count 1
+
   test-manually:
     name: Test (manually ...)
     needs: deploy
@@ -92,6 +96,7 @@ jobs:
 
       - name: remove the container
         run: |
+          aws ecs update-service --cluster lga-amer-ecs-cluster --service lga-service --desired-count 0
           echo "Container removed."
 
   on-rejection:
@@ -107,4 +112,5 @@ jobs:
 
       - name: remove the container
         run: |
+          aws ecs update-service --cluster lga-amer-ecs-cluster --service lga-service --desired-count 0
           echo "Container removed."
