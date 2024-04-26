@@ -6,8 +6,8 @@ permissions: { }
 env:
   AWS_REGION: us-east-1
   ECR_REPO: lga
-  ECS_SERVICE: lga-service
   ECS_CLUSTER: lga-amer-ecs-cluster
+  ECS_SERVICE: lga-service
   ECS_TASK_DEFINITION: .aws/task-definition-nginx.json
   CONTAINER_NAME: nginx-amer
 
@@ -70,7 +70,7 @@ jobs:
 
       - name: run the container
         run: |
-          aws ecs update-service --cluster lga-amer-ecs-cluster --service lga-service --desired-count 1
+          aws ecs update-service --cluster "$ECS_CLUSTER" --service "$ECS_SERVICE" --desired-count 1
 
   test-manually:
     name: Test (manually ...)
@@ -99,7 +99,7 @@ jobs:
 
       - name: remove the container
         run: |
-          aws ecs update-service --cluster lga-amer-ecs-cluster --service lga-service --desired-count 0
+          aws ecs update-service --cluster "$ECS_CLUSTER" --service "$ECS_SERVICE" --desired-count 0
           echo "Container removed."
 
       - name: create a pull request
@@ -117,7 +117,14 @@ jobs:
         run: |
           echo "Newly deployed code has been rejected. :-("
 
+      - name: Configure the AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
       - name: remove the container
         run: |
-          aws ecs update-service --cluster lga-amer-ecs-cluster --service lga-service --desired-count 0
+          aws ecs update-service --cluster "$ECS_CLUSTER" --service "$ECS_SERVICE" --desired-count 0
           echo "Container removed."
