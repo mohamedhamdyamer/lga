@@ -77,6 +77,9 @@ jobs:
     needs: deploy
     environment: manual-step
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
     outputs:
       code-approved: ${{ steps.set-approval.outputs.approved }}
 
