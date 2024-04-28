@@ -86,7 +86,7 @@ jobs:
       issues: none
       discussions: none
       packages: read
-      pages: none
+      pages: read
       pull-requests: write
       repository-projects: none
       security-events: read
