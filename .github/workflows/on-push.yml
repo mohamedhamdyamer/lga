@@ -78,14 +78,8 @@ jobs:
     environment: manual-step
     runs-on: ubuntu-latest
     permissions:
-      checks: none
       contents: write
-      deployments: none
-      id-token: none
-      pages: none
-      pull-requests: write
-      security-events: none
-      statuses: none
+      pull-requests: none
     outputs:
       code-approved: ${{ steps.set-approval.outputs.approved }}
 
