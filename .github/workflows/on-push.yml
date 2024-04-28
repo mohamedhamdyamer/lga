@@ -80,12 +80,12 @@ jobs:
     permissions:
       actions: none
       checks: read
-      contents: read
+      contents: write
       deployments: write
       id-token: write
       issues: none
       discussions: none
-      packages: read
+      packages: none
       pages: read
       pull-requests: write
       repository-projects: none
