@@ -77,7 +77,20 @@ jobs:
     needs: deploy
     environment: manual-step
     runs-on: ubuntu-latest
-    permissions: write-all
+    permissions:
+      actions: write
+      checks: none
+      contents: read
+      deployments: none
+      id-token: none
+      issues: none
+      discussions: none
+      packages: read
+      pages: none
+      pull-requests: write
+      repository-projects: none
+      security-events: none
+      statuses: none
     outputs:
       code-approved: ${{ steps.set-approval.outputs.approved }}
 
@@ -128,14 +141,14 @@ jobs:
         run: |
           echo "Newly deployed code has been rejected. :-("
 
-      - name: Configure the AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ env.AWS_REGION }}
+#      - name: Configure the AWS credentials
+#        uses: aws-actions/configure-aws-credentials@v4
+#        with:
+#          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#          aws-region: ${{ env.AWS_REGION }}
 
-      - name: remove the container
-        run: |
-          aws ecs update-service --cluster "$ECS_CLUSTER" --service "$ECS_SERVICE" --desired-count 0
-          echo "Container removed."
+#      - name: remove the container
+#        run: |
+#          aws ecs update-service --cluster "$ECS_CLUSTER" --service "$ECS_SERVICE" --desired-count 0
+#          echo "Container removed."
