@@ -88,7 +88,7 @@ jobs:
       packages: read
       pages: none
       pull-requests: write
-      repository-projects: none
+      repository-projects: read
       security-events: none
       statuses: none
     outputs:
@@ -104,7 +104,7 @@ jobs:
         run: |
           echo "Newly deployed code has been approved! ..."
 
-      - name: Checkout
+      - name: checkout
         uses: actions/checkout@v4.1.1
         with:
           fetch-depth: 0
