@@ -79,7 +79,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      pull-requests: none
     outputs:
       code-approved: ${{ steps.set-approval.outputs.approved }}
 
@@ -111,6 +110,7 @@ jobs:
 #          echo "Container removed."
 
       - name: create a pull request
+        id: cpr
         uses: peter-evans/create-pull-request@v6.0.5
         with:
           branch: test
@@ -118,6 +118,8 @@ jobs:
       - name: echo the pull request creation
         run: |
           echo "Pull Request created."
+          echo "Pull Request Number: ${{ steps.cpr.outputs.pull-request-number }}"
+          echo "Pull Request URL: ${{ steps.cpr.outputs.pull-request-url }}"
 
   on-rejection:
     name: On rejection
