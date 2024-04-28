@@ -89,7 +89,7 @@ jobs:
       pages: none
       pull-requests: write
       repository-projects: none
-      security-events: none
+      security-events: read
       statuses: read
     outputs:
       code-approved: ${{ steps.set-approval.outputs.approved }}
