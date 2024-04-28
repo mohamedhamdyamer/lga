@@ -82,7 +82,7 @@ jobs:
       checks: read
       contents: read
       deployments: write
-      id-token: none
+      id-token: write
       issues: none
       discussions: none
       packages: read
