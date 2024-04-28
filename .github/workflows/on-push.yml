@@ -82,13 +82,13 @@ jobs:
       checks: none
       contents: read
       deployments: none
-      id-token: none
+      id-token: read
       issues: none
       discussions: none
       packages: read
       pages: none
       pull-requests: write
-      repository-projects: read
+      repository-projects: none
       security-events: none
       statuses: none
     outputs:
