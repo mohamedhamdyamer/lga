@@ -81,7 +81,7 @@ jobs:
       actions: none
       checks: read
       contents: read
-      deployments: none
+      deployments: write
       id-token: none
       issues: none
       discussions: none
